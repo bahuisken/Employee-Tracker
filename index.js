@@ -94,7 +94,6 @@ const empAllMgr = () => {
 
             }
         ]).then((response) => {
-            console.log(response)
             let query = 'SELECT employees.id, employees.first_name, employees.last_name, roles.title, departments.name as "department"'
             query += 'FROM employees LEFT JOIN roles ON employees.role_id = roles.id ';
             query += 'LEFT JOIN departments ON roles.department_id = departments.id WHERE ?';
@@ -225,7 +224,7 @@ const newEmpRole = () => {
                     role_id: response.role_id,
                 },
                 {
-                    id: response.id
+                    id: response.id,
                 },
             ],
                 (err, res) => {
@@ -257,8 +256,6 @@ const newEmpMgr = () => {
             let empId = response.id
             let mgrQuery = `SELECT id, first_name, last_name FROM employees WHERE id !=${empId}`;
             connection.query(mgrQuery, (err, res) => {
-                console.log(res);
-                console.log(empId);
                 inquirer.prompt([
                     {
                         type: 'list',
@@ -270,8 +267,6 @@ const newEmpMgr = () => {
                         }))
                     }
                 ]).then((response) => {
-                    console.log(empId);
-                    console.log(response);
                     const query = connection.query(
                         'UPDATE employees SET ? WHERE ?', [
                         {
@@ -365,7 +360,6 @@ const delRole = () => {
                 }))
             }
         ]).then((response) => {
-            console.log(response)
             const query = connection.query(
                 'DELETE FROM roles WHERE ?', [
                 {
@@ -466,7 +460,6 @@ const delDept = () => {
                 }))
             }
         ]).then((response) => {
-            console.log(response)
             const query = connection.query(
                 'DELETE FROM departments WHERE ?', [
                 {
@@ -582,6 +575,5 @@ const appMenu = () => {
 //Launch Menu
 connection.connect((err) => {
     if (err) throw err;
-    console.log(`\nconnected as id ${connection.threadId}\n`);
     appMenu();
 });

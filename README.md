@@ -29,7 +29,7 @@ npm install
 ```bash
 npm run start
 ```
-[Click here for a video walkthrough of this application](TBD)
+[Click here for a video walkthrough of this application](https://drive.google.com/file/d/1rpVBUJSxY1WUK2S1g-EwDJ8uODvtd_Wi/view?usp=sharing)
 
 ## Credits
 
