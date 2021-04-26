@@ -2,7 +2,7 @@
 
 ## Description
 
-An application called Note Taker that can be used to write and save notes. This application uses an Express.js back end and saves and retrieve notes data from a JSON file.
+This application allows a user to  manage a company's employees using node, inquirer, and MySQL. The user can view and manage the departments, roles, and employees in a company.
 
 ## Table of Contents
 
